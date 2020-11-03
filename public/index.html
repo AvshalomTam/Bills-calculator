@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <!-- <style>
+    <style>
         html {
             background: url('./img/dollars.jpg') no-repeat center center fixed; 
             -webkit-background-size: cover;
@@ -9,28 +9,30 @@
             -o-background-size: cover;
             background-size: cover;
         }
-    </style> -->
+    </style>
     <link rel="stylesheet" href="/css/styles.css">
 </head>
 
 <body>
     <div class=a>
         <h1>bills calculator</h1>
-        <!-- <h1>{{title}}</h1> -->
         <div class=w>
             <p1>Water calculation:</p1>
             <form id=form-send>
                     <header>
-                        <p>enter old clock:</p>
+                        <div class=en>
+                            <p>enter old clock:</p>
+                        </div>
                         <input id="water-old" placeholder="Enter old clock">
                     </header>
                     <header>
-                        <p>enter new clock:</p>
+                        <div class=en>
+                            <p>enter new clock:</p>
+                        </div>
                         <input id="water-new" placeholder="Enter new clock">
                     </header>
                 <div class=p>
                     <p id="tariffWaterMsg"></p>
-                    <!-- <p>(calculating by 7.385 shekels)</p> -->
                 </div>    
                 
                 <button id="calc-water">Calculate water</button>
@@ -43,16 +45,19 @@
         <p1>Electricity calculation:</p1>
         <form id=form-send>
             <header>
-                <p>enter old clock:</p>
+                <div class=en>
+                    <p>enter old clock:</p>
+                </div>
                 <input id="elec-old" placeholder="Enter old clock">
             </header>
             <header>
-                <p>enter new clock:</p>
+                <div class=en>
+                    <p>enter new clock:</p>
+                </div>
                 <input id="elec-new" placeholder="Enter new clock">
             </header>
             <div class=p>
                 <p id="tariffElecMsg"></p>
-                <!-- <p>(calculating by 52.46 agorot)</p> -->
             </div>
             
             <button id="calc-elec">Calculate Electricity</button>

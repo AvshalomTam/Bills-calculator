@@ -1,6 +1,6 @@
 div.a {
     position: relative;
-    width: 480px;
+    width: 500px;
     height: 200px;
 }
 div.w {
@@ -12,24 +12,67 @@ div.w {
 div.e {
 position: absolute;
 right: 0;
-width: 190px;
+width: 210px;
 height: 120px;
 } 
 h1 {
+    margin-top: -1px;
+    font-family: "Arial Black", Gadget, sans-serif;
     color: darkgreen;
+    font-weight: bold;
+    font-size: 50px;
+    text-align: center;
     position: relative;
-    right: 0px;  
-    width: 300px;
+    left: 70px;
+    width: 450px;
 }
 header { border-bottom: 1px; }
 header p { display: inline-block; }
 header button { display: inline-block; }
-p1 {color: crimson;
+p1 {color: rgb(10, 68, 23);
+    text-align: center;
+    font-family: "Arial Black", Gadget, sans-serif;
     font-weight: bold;
+    font-size: 21px;
 }
 
-div.p {
+/* div.p {
     color: darkgreen;
+    background-color: darkgrey;
     font-size: 20px;
     font-weight: bold;
-}
+} */
+
+div.p {
+    font-family: "Arial Black", Gadget, sans-serif;
+    font-size: 12px;
+    margin-top:4px;
+    margin-bottom: 4px;
+    border-radius: 15px 50px;
+    background:grey;
+    padding: 1px;
+    width: 190px;
+    height: 50px;
+  }
+
+  div.en {
+    font-family: "Arial Black", Gadget, sans-serif;
+
+    text-align: center;
+    margin-top:4px;
+    margin-bottom: 4px;
+    border-radius: 15px 50px;
+    background: goldenrod;
+    padding: 1px;
+    width: 190px;
+    height: 50px;
+  }
+ /* div.w p {
+    margin-top:4px;
+    margin-bottom: 4px;
+    border-radius: 15px 50px;
+    background: goldenrod;
+    padding: 1px;
+    width: 190px;
+    height: 50px;
+  } */

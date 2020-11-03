@@ -30,12 +30,6 @@ io.on('connection', (socket) => {
     socket.emit('message', Tariffs)
 })
 
-// app.get('/wow', (req, res) => {
-//     res.render('index', {
-//         title: 'avshalom!!'
-//     })
-// })
-
 // server is listenning on port 3001 
 server.listen(port, () => {
     console.log(`Server is up on port ${port}`)
