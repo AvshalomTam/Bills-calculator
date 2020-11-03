@@ -1,11 +1,9 @@
 <!DOCTYPE html>
 <html>
-
 <head>
     <style>
-    
         html {
-            background: url('./img/bills_pic.jpg') no-repeat center center fixed; 
+            background: url('./img/dollars.jpg') no-repeat center center fixed; 
             -webkit-background-size: cover;
             -moz-background-size: cover;
             -o-background-size: cover;
@@ -18,7 +16,7 @@
 <body>
     <div class=a>
         <h1>bills calculator</h1>
-        <h1>{{title}}</h1>
+        <!-- <h1>{{title}}</h1> -->
         <div class=w>
             <p1>Water calculation:</p1>
             <form id=form-send>
@@ -31,7 +29,8 @@
                         <input id="water-new" placeholder="Enter new clock">
                     </header>
                 <div class=p>
-                    <p>(calculating by 7.385 shekels)</p>
+                    <p id="tariffWaterMsg"></p>
+                    <!-- <p>(calculating by 7.385 shekels)</p> -->
                 </div>    
                 
                 <button id="calc-water">Calculate water</button>
@@ -52,7 +51,8 @@
                 <input id="elec-new" placeholder="Enter new clock">
             </header>
             <div class=p>
-                <p>(calculating by 52.46 agorot)</p>
+                <p id="tariffElecMsg"></p>
+                <!-- <p>(calculating by 52.46 agorot)</p> -->
             </div>
             
             <button id="calc-elec">Calculate Electricity</button>

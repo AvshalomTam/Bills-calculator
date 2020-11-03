@@ -12,15 +12,27 @@ const publicDirectoryPath = path.join(__dirname, '../public')
 
 app.use(express.static(publicDirectoryPath))
 
-// io.on('connection', (socket) => {
-//     console.log('New WebSocket connection')
-// })
+io.on('connection', (socket) => {
+    // server prints on terminal that someone connected
+    console.log('New WebSocket connection')
+    // server get tariff of water
+    const tariffWater = 335
+    // server get tariff of electricity
+    const tariffElec = 445
 
-app.get('', (req, res) => {
-    res.render('index', {
-        title: 'avshalom!!'
-    })
+    const Tariffs = {
+        tariffWater,
+        tariffElec
+    }
+    // server sends data to client by emit function that runs on client side js on chat.js file
+    socket.emit('message', Tariffs)
 })
+
+// app.get('/wow', (req, res) => {
+//     res.render('index', {
+//         title: 'avshalom!!'
+//     })
+// })
 
 // server is listenning on port 3001 
 server.listen(port, () => {
