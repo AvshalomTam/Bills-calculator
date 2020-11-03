@@ -3,6 +3,8 @@ const http = require('http')
 const express = require('express')
 const socketio = require('socket.io')
 
+const {getWaterTariff, getElecTariff} = require('./tariff')
+
 const app = express()
 const server = http.createServer(app)
 const io = socketio(server)
@@ -16,9 +18,9 @@ io.on('connection', (socket) => {
     // server prints on terminal that someone connected
     console.log('New WebSocket connection')
     // server get tariff of water
-    const tariffWater = 335
+    const tariffWater = getWaterTariff()
     // server get tariff of electricity
-    const tariffElec = 445
+    const tariffElec = getElecTariff()
 
     const Tariffs = {
         tariffWater,

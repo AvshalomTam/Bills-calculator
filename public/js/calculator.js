@@ -1,5 +1,4 @@
 const socket = io()
-// const getTariff = require('./tariff')
 
 const $waterOld = document.querySelector('#water-old')
 const $waterNew = document.querySelector('#water-new')
@@ -25,17 +24,17 @@ const showMessagesElec = (subtraction, str, valShekels) => {
 }
 
 const showTariffOnPage = (tariffWater, tariffElec) => {
-    tariffWaterMsg.textContent = `(((calculating by ${tariffWater} shekels)))`
-    tariffElecMsg.textContent = `(((calculating by ${tariffElec} agorot)))`
+    tariffWaterMsg.textContent = `calculating by ${tariffWater} shekels`
+    tariffElecMsg.textContent = `calculating by ${tariffElec} agorot`
 }
 
 // bill calculation functions
 const WaterCalculation = (sub) => {
-    return (sub * 7.385).toFixed(2)
+    return (sub * WaterRate).toFixed(2)
 }
 
 const ElecCalculation = (sub) => {
-    return ((sub * 52.46)/100).toFixed(2)
+    return ((sub * ElecrticityRate)/100).toFixed(2)
 }
 
 // Callback function for buttons
@@ -70,11 +69,7 @@ $calcElecButton.addEventListener('click', (e) => {
 socket.on('message', (message) => {
     console.log(message)
     // got tariffWaterMsg, tariffElecrMsg from server
-    showTariffOnPage(message.tariffWater, message.tariffElec)
-    // // storing the final html we will render in browser - use Mustache liebrary
-    // const html = Mustache.render(messageTemplate, {
-    //     message: message
-    // })
-    // // insert html to messages element
-    // $messages.insertAdjacentHTML('beforeend', html)
+    WaterRate = message.tariffWater
+    ElecrticityRate = message.tariffElec
+    showTariffOnPage(WaterRate, ElecrticityRate)
 })
