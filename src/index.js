@@ -2,6 +2,7 @@ const path = require('path')
 const http = require('http')
 const express = require('express')
 const socketio = require('socket.io')
+const hbs = require('hbs')
 
 const {getWaterTariff, getElecTariff} = require('./tariff')
 
@@ -10,8 +11,17 @@ const server = http.createServer(app)
 const io = socketio(server)
 
 const port = process.env.PORT || 3001
+// Define paths for Express configuration
 const publicDirectoryPath = path.join(__dirname, '../public')
+const viewsPath = path.join(__dirname, '../templates/views')
+const partialsPath = path.join(__dirname, '../templates/partials')
 
+// Setup handelbars engine and views location 
+app.set('view engine', 'hbs')
+app.set('views', viewsPath)
+hbs.registerPartials(partialsPath)
+
+// Setup static directory to serve
 app.use(express.static(publicDirectoryPath))
 
 io.on('connection', (socket) => {
@@ -30,6 +40,17 @@ io.on('connection', (socket) => {
     socket.emit('message', Tariffs)
 })
 
+app.get('', (req, res) => {
+    res.render('index')
+})
+
+app.get('/oldClocks', (req, res) => {
+    res.render('oldClocks')
+})
+
+app.get('/aboutMe', (req, res) => {
+    res.render('aboutMe')
+})
 // server is listenning on port 3001 
 server.listen(port, () => {
     console.log(`Server is up on port ${port}`)
