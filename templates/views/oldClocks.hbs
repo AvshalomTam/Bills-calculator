@@ -55,7 +55,16 @@
                 <div class=en>
                     <p>Choose year/month:</p>
                 </div>
-                {{>date}}
+                
+                {{!-- {{>date}} --}}
+                    <select name="month" id="monthPickRet">
+                        {{>month}}
+                    </select>
+                    <select name="yaer" id="yearPickRet">
+                        {{>year}}
+                    </select>
+                
+                
                     <select name="month" id="month">
                         <option value="Water">Water</option>
                         <option value="Electricity">Electricity</option>

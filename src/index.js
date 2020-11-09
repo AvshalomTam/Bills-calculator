@@ -4,7 +4,7 @@ const express = require('express')
 const socketio = require('socket.io')
 const hbs = require('hbs')
 
-const {getWaterTariff, getElecTariff} = require('./tariff')
+const {getOldClocks, getWaterTariff, getElecTariff} = require('./tariff')
 
 const app = express()
 const server = http.createServer(app)
@@ -59,9 +59,9 @@ app.get('/clocks', (req, res) => {
         })
     }
 
-    res.send({
-        kind: req.query.kind
-    })
+    const clock = getOldClocks('./db/clocksWater.json', req.query.year, req.query.month).toString()
+    // const t = clocks[0].clock.toString()
+    res.send(clock)
 })
 
 // server is listenning on port 3001 
