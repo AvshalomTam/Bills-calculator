@@ -56,10 +56,18 @@
                     <p>Choose year/month:</p>
                 </div>
                 {{>date}}
+                    <select name="month" id="month">
+                        <option value="Water">Water</option>
+                        <option value="Electricity">Electricity</option>
+                    </select>
                 {{!-- <input id="elec-old" placeholder="Enter old clock"> --}}
             </header>
             
-            <button id="calc-elec">Retrieve from DB</button>
+            <button id="retrieve">Retrieve from DB</button>
+                    <div class=py>
+                        <p id="oldClocks"></p>
+                        {{!-- <p id="ElecPay"></p> --}}
+                    </div>
         </form>
         {{!-- <div class=py>
             <p id="ElecUsage"></p>
@@ -69,5 +77,8 @@
     </div>
 
     </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/3.0.1/mustache.min.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="/js/oldClocks.js"></script>
 </body>
 </html>

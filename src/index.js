@@ -51,6 +51,19 @@ app.get('/oldClocks', (req, res) => {
 app.get('/aboutMe', (req, res) => {
     res.render('aboutMe')
 })
+
+app.get('/clocks', (req, res) => {
+    if (!req.query.kind) {
+        return res.send({
+            error: 'kind of DB must be provided!'
+        })
+    }
+
+    res.send({
+        kind: req.query.kind
+    })
+})
+
 // server is listenning on port 3001 
 server.listen(port, () => {
     console.log(`Server is up on port ${port}`)
