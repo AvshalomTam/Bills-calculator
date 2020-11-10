@@ -20,7 +20,6 @@ const getTariff = (pathToDB) => {
 const getOldClocks = (pathToDB, year, month) => {
     let rawdata = fs.readFileSync(pathToDB)
     let clocks = JSON.parse(rawdata)
-    // console.log(clocks)
 
     var searchFieldYear = "year"
     var searchValYear = year
@@ -29,12 +28,12 @@ const getOldClocks = (pathToDB, year, month) => {
     for (var i = 0 ; i < clocks.length ; i++)
     {
             if ((clocks[i][searchFieldYear] == searchValYear) && (clocks[i][searchFieldMonth] == searchValMonth)) {
-                clock = clocks[i].clock
+                clock = clocks[i].clock.toString()
                 return clock   
-        }
+        } 
     }
-
-    // return clocks
+    // if doesnt find old clock in db to that date
+    return `No Data on ${month}/${year}`
 }
 
 const getWaterTariff = () => {

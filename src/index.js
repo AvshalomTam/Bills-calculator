@@ -59,11 +59,24 @@ app.get('/clocks', (req, res) => {
         })
     }
 
-    const clock = getOldClocks('./db/clocksWater.json', req.query.year, req.query.month).toString()
+    const rightDBpath = `./db/clocks${req.query.kind}.json` 
+
+    const clock = getOldClocks(rightDBpath, req.query.year, req.query.month)
     // const t = clocks[0].clock.toString()
-    res.send(clock)
+    res.send({
+        message: clock
+    })
 })
 
+//`/save?kind=Electricity&year=${yearPickElec}&month=${monthPickElec}`
+app.get('/save', (req, res) => {
+    const rightDBpath = `./db/clocks${req.query.kind}.json` 
+    // TODO Save data in file
+
+    res.send({
+        message: 'Data Saved'
+    })
+})
 // server is listenning on port 3001 
 server.listen(port, () => {
     console.log(`Server is up on port ${port}`)
