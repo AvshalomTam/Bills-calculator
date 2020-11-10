@@ -36,6 +36,12 @@ const getOldClocks = (pathToDB, year, month) => {
     return `No Data on ${month}/${year}`
 }
 
+const saveDataToFile = (rightDBpath, year, month, clock) => {
+    // if date already exists:
+   
+    // if it doesnt exists:
+}
+
 const getWaterTariff = () => {
     return getTariff('./db/waterDB.json')
 }
@@ -47,6 +53,7 @@ const getElecTariff = () => {
 module.exports = {
     getWaterTariff,
     getElecTariff,
-    getOldClocks
+    getOldClocks,
+    saveDataToFile
 }
 

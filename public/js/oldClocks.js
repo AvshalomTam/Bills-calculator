@@ -17,16 +17,20 @@ const messageDB = document.querySelector('#oldClocks')
 const messageDBWater = document.querySelector('#messageDBWater')
 const messageDBElec = document.querySelector('#messageDBElec')
 
+//values inserted by user
+const waterToDB = document.querySelector('#water-toDB')
+const elecToDB = document.querySelector('#elec-toDB')
+
 
 $saveDBWaterButton.addEventListener('click', (e) => {
     e.preventDefault()
-    const fetchSavePath = `/save?kind=Water&year=${yearPickWater}&month=${monthPickWater}`
+    const fetchSavePath = `/save?kind=Water&year=${yearPickWater.value}&month=${monthPickWater.value}&clock=${waterToDB.value}`
     fetchToServer(fetchSavePath, messageDBWater)
 })
 
 $saveDBElecButton.addEventListener('click', (e) => {
     e.preventDefault()
-    const fetchSavePath = `/save?kind=Electricity&year=${yearPickElec}&month=${monthPickElec}`
+    const fetchSavePath = `/save?kind=Electricity&year=${yearPickElec.value}&month=${monthPickElec.value}&clock=${elecToDB.value}`
     fetchToServer(fetchSavePath, messageDBElec)
 })
 

@@ -4,7 +4,7 @@ const express = require('express')
 const socketio = require('socket.io')
 const hbs = require('hbs')
 
-const {getOldClocks, getWaterTariff, getElecTariff} = require('./tariff')
+const {getOldClocks, getWaterTariff, getElecTariff, saveDataToFile} = require('./tariff')
 
 const app = express()
 const server = http.createServer(app)
@@ -62,7 +62,6 @@ app.get('/clocks', (req, res) => {
     const rightDBpath = `./db/clocks${req.query.kind}.json` 
 
     const clock = getOldClocks(rightDBpath, req.query.year, req.query.month)
-    // const t = clocks[0].clock.toString()
     res.send({
         message: clock
     })
@@ -71,7 +70,8 @@ app.get('/clocks', (req, res) => {
 //`/save?kind=Electricity&year=${yearPickElec}&month=${monthPickElec}`
 app.get('/save', (req, res) => {
     const rightDBpath = `./db/clocks${req.query.kind}.json` 
-    // TODO Save data in file
+    // TODO Save data to file
+    saveDataToFile(rightDBpath, req.query.year, req.query.month, req.query.clock)
 
     res.send({
         message: 'Data Saved'
