@@ -35,6 +35,17 @@ h1 {
 header { border-bottom: 1px; }
 header p { display: inline-block; }
 header button { display: inline-block; }
+
+header a {
+    margin: 20px;
+    color: #c40e0e;
+    font-weight: bold;
+    position: relative;
+    left: 30px;
+    font-family: "Times New Roman";
+    font-size: 20px;
+}
+
 p1 {color: rgb(10, 68, 23);
     text-align: center;
     font-family: "Arial Black", Gadget, sans-serif;
@@ -83,4 +94,24 @@ div.p {
   .portrait {
     width: 250px;
     border-radius: 20%;
+}
+
+div.details {
+  position: absolute;
+  left: 40px;
+  color:#be0505;
+  font-family: "Arial Black", Gadget, sans-serif;
+  font-size: 18px;
+  margin-top:1px;
+  /* margin-bottom: 4px; */
+  /* border-radius: 15px 50px; */
+  /* background:grey; */
+  /* padding: 1px; */
+  /* width: 200px; */
+  height: 50px;
+}
+
+div.pic {
+  position: absolute;
+  left: 50px;
 }

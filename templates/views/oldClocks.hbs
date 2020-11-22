@@ -22,7 +22,7 @@
                         <select name="yaer" id="yearPickWater">
                             {{>year}}
                         </select>
-                        <input id="water-toDB" placeholder="Enter water clock">
+                        <input id="water-toDB" placeholder="Enter water clock" autocomplete="off">
                     </header> 
                 
                 <button id="save-to-db-water">Save to DB</button>
@@ -41,7 +41,7 @@
         <form id=form-send>
             <header>
                 <div class=en>
-                    <p>enter electricity clock:</p>
+                    <p>enter electricity:</p>
                 </div>
                 <select name="month" id="monthPickElec">
                         {{>month}}
@@ -49,7 +49,7 @@
                 <select name="yaer" id="yearPickElec">
                         {{>year}}
                 </select>
-                <input id="elec-toDB" placeholder="Enter electricity clock">
+                <input id="elec-toDB" placeholder="Enter electricity clock" autocomplete="off">
             </header>
             
             <button id="save-to-db-elec">Save to DB</button>
