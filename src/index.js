@@ -4,7 +4,8 @@ const express = require('express')
 const socketio = require('socket.io')
 const hbs = require('hbs')
 
-const {getOldClocks, getWaterTariff, getElecTariff, saveDataToFile} = require('./tariff')
+const {getWaterTariff, getElecTariff} = require('./tariff')
+const {getOldClocks, saveDataToFile} = require('./manageDB')
 
 const app = express()
 const server = http.createServer(app)
@@ -70,11 +71,10 @@ app.get('/clocks', (req, res) => {
 //`/save?kind=Electricity&year=${yearPickElec}&month=${monthPickElec}`
 app.get('/save', (req, res) => {
     const rightDBpath = `./db/clocks${req.query.kind}.json` 
-    // TODO Save data to file
-    saveDataToFile(rightDBpath, req.query.year, req.query.month, req.query.clock)
+    const resp = saveDataToFile(rightDBpath, req.query.year, req.query.month, req.query.clock)
 
     res.send({
-        message: 'Data Saved'
+        message: resp
     })
 })
 // server is listenning on port 3001 
